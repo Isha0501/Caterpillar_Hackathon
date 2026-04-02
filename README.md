@@ -16,14 +16,17 @@ One of our core initiatives is to use telematics data collected from customers�
 
 ### 📊 Real-Time Risk Monitoring Dashboard
 ![Live Dashboard](assets/Dashboard.jpg)
+
 The main interface providing a live view of all critical machine parameters. Each chart includes interactive Plotly visualizations with dashed lines representing safe-operating thresholds (Yellow for Low Priority, Red for High Priority).
 
 ### 📲 Automated SMS Alerting System
-![SMS Alerts](assets/SMS_Alerts.jpg)
+<img src="assets/SMS_Alerts.jpg" alt="SMS Alerts" width="300">
+
 When the model detects sustained threshold breaches or high-risk patterns, it automatically triggers SMS notifications via Twilio. These alerts include direct links to support resources or maintenance scheduling.
 
 ### 📈 Synthetic Telematics Data Generation
 ![Synthetic Data Example](assets/Synthetic_Data_Example.jpg)
+
 The system includes a robust simulation engine that generates realistic Product Link telematics data, including intentional "failure injections" to validate the predictive model's responsiveness.
 
 ---
@@ -63,6 +66,18 @@ Our XGBoost classifier achieves near-human expert accuracy in identifying failur
 | 🟠 Medium Risk | 100% | 100% | 100% | 1,322 |
 | 🔴 High Risk | 100% | 100% | 100% | 1,795 |
 | **Overall** | **100%** | **100%** | **100%** | **4,389** |
+
+### 📊 Dataset Statistics
+The model's performance is backed by a robust synthetic dataset designed to simulate real-world telematics:
+- **Total Data Points**: 14,630 unique sensor readings.
+- **Training Set**: 10,241 samples (70% split).
+- **Test Set**: 4,389 samples (30% split).
+- **Parameters**: 14 distinct sensor streams (Temperature, Pressure, Level, etc.) across 5 machine types.
+
+### 📂 Original Hackathon Data
+The system leverages the original datasets provided by Caterpillar:
+- **`Threshold.csv`**: Used as the "Safe Range" logic engine. It defines the low/high boundaries and risk levels for every sensor, driving the automated alerts and visualization markers.
+- **`Data.csv`**: Served as the structural reference for the simulation. While the live engine now generates infinite synthetic data for real-time monitoring, this file defined the original field schema and telematics format.
 
 ### Key Strengths
 - **Intelligent Simulation**: Uses bounded random walks to simulate realistic sensor drift with automated fault injection.
@@ -139,10 +154,3 @@ export RECIPIENT_NUMBER="alert_recipient_number"
 This project was developed by a team of 4 during a **24-hour hackathon hosted by Caterpillar Inc.** in 2024, while we were pursuing our B.Tech at **VIT Vellore**.
 
 As one of the teams recognized at the conclusion of the event, we were invited to interview for internship and full-time positions at Caterpillar. The project stands as a testament to our ability to rapidly build production-ready AI solutions for complex industrial telematics challenges.
-
-**Team Members**: [Your Name/Team Info]
-
----
-
-## 📄 License
-This project was created for hackathon purposes and is shared here for portfolio and educational use.
